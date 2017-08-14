@@ -1,0 +1,44 @@
+print("hello world")
+
+
+hello <- "hello world again"
+print(hello)
+
+
+paramFunc <-function(x){
+   print(x)
+}
+paramFunc("work please")
+
+
+sumFunc <-function(x,y,bool=TRUE){
+  if (x == 0) {
+      print(y)
+  }else if (y == 0) {
+      print(x)
+  }else if (bool == TRUE){
+      print(x + y)
+  }else {
+      print(x*y)
+  }
+}
+sumFunc(1,2, FALSE)
+sumFunc(1,2, TRUE)
+sumFunc(1,0, TRUE)
+sumFunc(0,1, FALSE)
+
+for(i in 1:10){
+  sumFunc(5,3,TRUE)
+}
+
+v <- c(1,2,3,4,5)
+print(v)
+
+
+
+
+
+
+
+
+
