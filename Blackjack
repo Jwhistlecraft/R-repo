@@ -1,1 +1,25 @@
+#Hands
 
+hands <-function(hand1,hand2){
+  
+  difference = hand1 - hand2
+  
+  if (hand1 > 21 & hand2 > 21){
+    print("both players are bust")
+  }else if (hand1 > 21 & hand2 <=21){
+    print("player1 is bust, player 2 wins")
+  }else if (hand2 > 21 & hand1 <=21){
+    print("player2 is bust, player 1 wins")
+  }else if (hand1 <= 21 & difference <0){
+    print("player2 wins")
+  }else if (hand2 <= 21 & difference >0){
+    print("player1 wins")
+  }else if (hand1 == hand2){
+    print("game is tied")
+  }
+}  
+hands(18,21)
+hands(20,18)
+hands(22,23)
+hands(22,19)
+hands(19,22)
