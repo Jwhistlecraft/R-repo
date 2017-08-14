@@ -1,0 +1,16 @@
+#working with files
+
+setwd("C:/Users/Administrator/Documents") 
+
+evenVector = seq(0,1000,2)
+
+write.csv(evenVector, "evenVector.csv")
+evenTable <- read.csv("evenVector.csv")
+
+print(evenTable)
+
+oddVector <- evenTable[ ,2]+1
+
+print(oddVector)
+
+write.csv(oddVector,"oddVector.csv")
