@@ -23,3 +23,37 @@ hands(20,18)
 hands(22,23)
 hands(22,19)
 hands(19,22)
+
+#too hot
+
+hotInput <-function(temp,isSummer){
+  if (temp >= 60 || temp == 100 & isSummer == FALSE){
+    return (TRUE)
+  }else if (temp >= 60 || temp == 100 & isSummer == FALSE){
+    return (FALSE)
+  }else if (temp <= 90 & temp >=60){
+    return (TRUE)
+  }else if (temp < 60){
+    return (FALSE)
+  }
+}
+
+print(hotInput(80, FALSE))
+print(hotInput(100, FALSE))
+print(hotInput(100, TRUE))
+print(hotInput(50, TRUE))
+
+#leap year
+
+leapCheck <-function(year){
+  if (year %%4 == 0){
+    print("its a leap year mate")
+  }else {
+    print("aint no leap year pal")
+  }
+}
+leapCheck(400)
+leapCheck(1200)
+leapCheck(1999)
+leapCheck(2020)
+
