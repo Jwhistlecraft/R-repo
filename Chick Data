@@ -1,0 +1,29 @@
+#Chicks
+
+data(ChickWeight)
+
+Diet_1 <-subset(ChickWeight, Diet == "1")
+print(Diet_1)
+plot(weight~Time, 
+     data=Diet_1, 
+     main = "Diet 1")
+
+Diet_2 <-subset(ChickWeight, Diet == "2")
+print(Diet_2)
+plot(weight~Time, 
+     data=Diet_2, 
+     main = "Diet 2")
+
+Diet_3 <-subset(ChickWeight, Diet == "3")
+print(Diet_3)
+plot(weight~Time,
+     data=Diet_3, 
+     main = "Diet 3")
+
+Diet_4 <-subset(ChickWeight, Diet == "4")
+print(Diet_4)
+plot(weight~Time, 
+     data=Diet_4,
+     col= c("gray1","gray11","gray21","gray31","gray41", 
+            "gray51","gray61","gray71","gray81", 
+            "gray91","gray100")[as.numeric(Chick)])
