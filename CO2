@@ -1,0 +1,44 @@
+data(CO2)
+print(CO2)
+
+str(CO2) #plants are ordered factors
+
+
+#Mean
+
+mean_uptake = mean(CO2$uptake)
+print(mean_uptake)
+
+
+#BoxPlots
+
+boxplot(uptake~Type, data=CO2, xLab = "Type", yLab = "Uptake")
+
+
+#Subsets
+
+quebec_CO2 <- subset(CO2, Type=="Quebec")
+print(quebec_CO2)
+
+Mississippi_CO2 <- subset(CO2, Type=="Mississippi")
+print(quebec_CO2)
+
+
+#Mean Checker
+
+mean_checker <-function(vec1, vec2){
+  vec1_mean = mean(vec1$uptake)
+  vec2_mean = mean(vec2$uptake)
+  
+  print(vec1)
+  print(vec2)
+  
+  if (vec1_mean > vec2_mean){
+    print(paste("set 1's mean is greater with: ", vec1_mean))
+  }else if (vec1_mean < vec2_mean){
+    print(paste("set 2's mean is greater with: ", vec2_mean))
+  }else{
+    print("somthing went wrong mate")
+  }
+}
+mean_checker(Mississippi_CO2, quebec_CO2)
