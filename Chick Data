@@ -26,4 +26,4 @@ plot(weight~Time,
      data=Diet_4,
      col= c("gray1","gray11","gray21","gray31","gray41", 
             "gray51","gray61","gray71","gray81", 
-            "gray91","gray100")[as.numeric(Chick)])
+            "gray91","gray100")[Chick])
