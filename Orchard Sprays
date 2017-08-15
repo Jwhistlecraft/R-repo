@@ -1,0 +1,10 @@
+#Orchards Sprays Data
+
+data(OrchardSprays)
+print(OrchardSprays)
+
+maxDecrease <- subset(OrchardSprays,
+                      decrease==max(OrchardSprays$decreas, ne.rm=T))
+print(maxDecrease)
+
+boxplot(decrease~treatment, data = OrchardSprays)
