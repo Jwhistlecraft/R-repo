@@ -7,4 +7,4 @@ primest <- function(n){
   }                                   #sqrt of n, based of the sieve of Eratisthenes method
   p                                   #for finding primes.
 }
-print(primest(100))
+print(length(primest(1000000)))
