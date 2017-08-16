@@ -1,0 +1,10 @@
+primest <- function(n){
+  p <- 2:n
+  i <- 1
+  while (p[i] <= sqrt(n)) {
+    p <-  p[p %% p[i] != 0 | p==p[i]] #here p %% p[i] is taking the modulus of the entire 
+    i <- i+1                          #array, therefore it only needs to work up until the 
+  }                                   #sqrt of n, based of the sieve of Eratisthenes method
+  p                                   #for finding primes.
+}
+print(primest(100))
