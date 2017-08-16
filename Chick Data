@@ -1,29 +1,62 @@
+#install.packages("ggplot2")
+library(ggplot2)
+
 #Chicks
 
 data(ChickWeight)
 
+#plot all diets
+ggplot(ChickWeight, aes(x=Time, y=weight, group=Chick, color=Diet))+ geom_point() + geom_line() + labs(title="All Diets")
+
+#plot diet 1 
 Diet_1 <-subset(ChickWeight, Diet == "1")
 print(Diet_1)
-plot(weight~Time, 
-     data=Diet_1, 
-     main = "Diet 1")
+ggplot(Diet_1, aes(x=Time, y=weight, group=Chick, color=Chick)) + geom_point() + geom_line() + labs(title="Diet 1")
 
+#plot diet 2
 Diet_2 <-subset(ChickWeight, Diet == "2")
 print(Diet_2)
-plot(weight~Time, 
-     data=Diet_2, 
-     main = "Diet 2")
+ggplot(Diet_2, aes(x=Time, y=weight, group=Chick, color=Chick)) + geom_point() + geom_line() + labs(title="Diet 2")
 
+#plot diet 3
 Diet_3 <-subset(ChickWeight, Diet == "3")
 print(Diet_3)
-plot(weight~Time,
-     data=Diet_3, 
-     main = "Diet 3")
+ggplot(Diet_3, aes(x=Time, y=weight, group=Chick, color=Chick)) + geom_point() + geom_line() + labs(title="Diet 3")
 
+#plot diet 4
 Diet_4 <-subset(ChickWeight, Diet == "4")
 print(Diet_4)
-plot(weight~Time, 
-     data=Diet_4,
-     col= c("gray1","gray11","gray21","gray31","gray41", 
-            "gray51","gray61","gray71","gray81", 
-            "gray91","gray100")[Chick])
+ggplot(Diet_4, aes(x=Time, y=weight, group=Chick, color=Chick)) + geom_point() + geom_line() + labs(title="Diet 4")
+
+
+genAverages <- function(df){
+  thisList <- list()
+  for(age in 0:21){
+    if(age%in%df$Time){                 #if the age value is in the Time column then...
+      temp <- subset(df, Time==age)     #creates a subset of data set with values when time == age
+      days <- temp$Time[[1]]            #sets days = to the first value of Time in the temp data set. 
+      
+      meanWeight <- mean(temp$weight)   #calculates the mean of the weight in temp
+      diet <- temp$Diet[[1]]            #sets diet = to the first value of Diet the temp data set
+      
+      print(temp)
+      
+      thisList[[length(thisList)+1]] <- data.frame(days, diet, meanWeight)
+    }                                   #adds a data frame to a list of data frames called thisList
+  }
+  thisList
+}
+
+allAveragesList<- c(genAverages(Diet_1),genAverages(Diet_2),genAverages(Diet_3),genAverages(Diet_4))
+
+AveragesDataFrame <-do.call(rbind, allAveragesList) #rbind merges data frames
+
+print(AveragesDataFrame)
+
+ggplot(AveragesDataFrame, aes(x=days, y=meanWeight, group=diet, color=diet))  + geom_point() + geom_line() + labs(title="All Diet Averages")
+
+
+
+
+
+
